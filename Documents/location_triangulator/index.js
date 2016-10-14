@@ -21,14 +21,6 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-//===============================================================
-//var express        =        require("express");
-//ar bodyParser     =        require("body-parser");
-//var app            =        express();
-//Here we are configuring express to use body-parser as middle-ware.
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(bodyParser.json());
-
 var requestsReceived = 0
 var locations = []
 var STATUS_OK = 200
@@ -39,37 +31,6 @@ var NUM_USERS_EXPECTING = 3
 
 app.get('/grabLocation', function(request, response) {
   console.log(locations)
-
-  /**<html>
-
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />        title>Triangulator </title>
-        <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-    </head>
-
-    <body>
-        <div id="map" style="width: 1000px; height: 1000px;"></div>
-        <script type="text/javascript"> */
-/*
-var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: new google.maps.LatLng(-33.92, 151.25),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-
-var infowindow = new google.maps.InfoWindow();
-
-var marker, i;
-var bound = new google.maps.LatLngBounds();
-
-//console.log(test);
-
-for (i = 0; i < locations.length; i++) {
-  bound.extend( new google.maps.LatLng(locations[i][2], locations[i][3]) );
-
-}
-
-console.log( bound.getCenter() lahok); */
 
 var lowLat = INFINITY
 var highLat = -INFINITY
@@ -115,14 +76,9 @@ for (i = 0; i < locations.length; i++) {
     la: midLa
   }
 response.send(JSON.stringify(midPoint))
-	//response.send(JSON.stringify(locations))
-  //response.json({notes: "This is your notebook. Edit this to start saving your notes!"})
+
 })
 
-
-/*
-*		request.query.id
-*/
 app.get('/posts', function(request, response) {
 	//console.log(request.query.id)
 
